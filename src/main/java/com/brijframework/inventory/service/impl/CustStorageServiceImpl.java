@@ -57,12 +57,12 @@ public class CustStorageServiceImpl implements CustStorageService {
 
 	@Override
 	public List<UICustStorage> getStorageList(long inventoryAppId) {
-		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findAllByCusIinventoryAppId(inventoryAppId));
+		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findAllByCustInventoryAppId(inventoryAppId));
 	}
 	
 	@Override
 	public UICustStorage getStorage(long inventoryAppId,String typeId) {
-		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findByCusIinventoryAppIdAndTypeId(inventoryAppId, typeId));
+		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findByCustInventoryAppIdAndTypeId(inventoryAppId, typeId));
 	}
 
 }

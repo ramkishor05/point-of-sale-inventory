@@ -12,8 +12,8 @@ import com.brijframework.inventory.entities.EOCustPreparation;
 @Transactional
 public interface CustPreparationRepository extends JpaRepository<EOCustPreparation, Long>{
 	
-	List<EOCustPreparation> findAllByCusIinventoryAppId(long cusIinventoryAppId);
+	List<EOCustPreparation> findAllByCustInventoryAppId(long custInventoryAppId);
 
-	EOCustPreparation findByCusIinventoryAppIdAndTypeId(long cusIinventoryAppId, String typeId);
+	EOCustPreparation findByCustInventoryAppIdAndTypeId(long custInventoryAppId, String typeId);
 
 }
