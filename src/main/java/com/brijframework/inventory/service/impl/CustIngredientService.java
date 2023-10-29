@@ -3,20 +3,20 @@ package com.brijframework.inventory.service.impl;
 import java.util.List;
 
 import com.brijframework.inventory.dto.UICustIngredient;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 
 public interface CustIngredientService {
 
-	UICustIngredient saveIngredient(long inventoryAppId, UICustIngredient Ingredient);
+	UICustIngredient saveIngredient(long custBusinessAppId, UICustIngredient custIngredient);
 
-	UICustIngredient saveIngredient(UICustIngredient Ingredient);
+	UICustIngredient saveIngredient(UICustIngredient custIngredient);
 
-	UICustIngredient saveIngredient(EOCustInventoryApp eoInventoryApp, UICustIngredient Ingredient);
+	UICustIngredient saveIngredient(EOCustBusinessApp eoCustBusinessApp, UICustIngredient custIngredient);
 
 	UICustIngredient getIngredient(long id);
 
-	List<UICustIngredient> getIngredientList(long inventoryAppId);
+	List<UICustIngredient> getIngredientList(long custBusinessAppId);
 
-	UICustIngredient getIngredient(long inventoryAppId, String typeId);
+	UICustIngredient getIngredient(long custBusinessAppId, String typeId);
 
 }

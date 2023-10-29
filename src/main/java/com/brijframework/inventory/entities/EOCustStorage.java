@@ -1,6 +1,6 @@
 package com.brijframework.inventory.entities;
 
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_STORAGE;
 import static com.brijframework.inventory.contants.Constants.EOCUST_STORAGE;
 import static com.brijframework.inventory.contants.Constants.IDEN_NO;
@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = EOCUST_STORAGE, uniqueConstraints = {
 		@UniqueConstraint (columnNames = { 
-				CUST_PROD_APP_ID, IDEN_NO })})
+				CUST_BUSSINESS_APP_ID, IDEN_NO })})
 public class EOCustStorage extends EOCustItem{
 
 	/**
@@ -29,28 +29,25 @@ public class EOCustStorage extends EOCustItem{
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-	@JoinColumn(name=CUST_PROD_APP_ID, nullable=false)
-	private EOCustInventoryApp custInventoryApp;
+	@JoinColumn(name=CUST_BUSSINESS_APP_ID, nullable=false)
+	private EOCustBusinessApp custBusinessApp;
 	
 	@OneToMany(mappedBy=CUST_STORAGE)
-	public Set<EOCustLocation> custLocations;
+	public Set<EOCustLocation> custLocationList;
 
-	public Set<EOCustLocation> getCustLocations() {
-		return custLocations;
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
 	}
 
-	public void setCustLocations(Set<EOCustLocation> custLocations) {
-		this.custLocations = custLocations;
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public Set<EOCustLocation> getCustLocationList() {
+		return custLocationList;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setCustLocationList(Set<EOCustLocation> custLocationList) {
+		this.custLocationList = custLocationList;
 	}
-
-	
-	
 }

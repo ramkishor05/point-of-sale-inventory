@@ -7,62 +7,63 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brijframework.inventory.dto.UICustLocation;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 import com.brijframework.inventory.entities.EOCustLocation;
 import com.brijframework.inventory.mapper.CustLocationMapper;
-import com.brijframework.inventory.repository.CustInventoryAppRepository;
+import com.brijframework.inventory.repository.CustBusinessAppRepository;
 import com.brijframework.inventory.repository.CustLocationRepository;
 
 @Service
 public class CustLocationServiceImpl implements CustLocationService {
 	
 	@Autowired
-	CustInventoryAppRepository inventoryApplicationRepository;
+	CustBusinessAppRepository custBusinessAppRepository;
 	
 	@Autowired
-	CustLocationRepository inventoryLocationRepository;
+	CustLocationRepository custLocationRepository;
 	
 	@Autowired
-	CustLocationMapper inventoryLocationMapper;
+	CustLocationMapper custLocationMapper;
 	
 	@Override
-	public UICustLocation saveLocation(long inventoryAppId, UICustLocation Location) {
-		Optional<EOCustInventoryApp> findById = inventoryApplicationRepository.findById(inventoryAppId);
+	public UICustLocation saveLocation(long custBusinessAppId, UICustLocation custLocation) {
+		Optional<EOCustBusinessApp> findById = custBusinessAppRepository.findById(custBusinessAppId);
 		if(!findById.isPresent()) {
 			return null;
 		}
-		return saveLocation(findById.get(), Location);
+		return saveLocation(findById.get(), custLocation);
 	}
 	
 	@Override
-	public UICustLocation saveLocation(UICustLocation Location) {
-		Optional<EOCustInventoryApp> findById = inventoryApplicationRepository.findById(Location.getCustInventoryAppId());
+	public UICustLocation saveLocation(UICustLocation custLocation) {
+		Optional<EOCustBusinessApp> findById = custBusinessAppRepository.findById(custLocation.getCustBusinessAppId());
 		if(!findById.isPresent()) {
 			return null;
 		}
-		return saveLocation(findById.get(), Location);
+		return saveLocation(findById.get(), custLocation);
 	}
 	
 	@Override
-	public UICustLocation saveLocation(EOCustInventoryApp eoInventoryApp,UICustLocation Location) {
-		EOCustLocation eoLocation=inventoryLocationMapper.mapToDAO(Location);
-		inventoryLocationRepository.save(eoLocation);
-		return inventoryLocationMapper.mapToDTO(eoLocation);
+	public UICustLocation saveLocation(EOCustBusinessApp custBusinessApp,UICustLocation custLocation) {
+		EOCustLocation eoLocation=custLocationMapper.mapToDAO(custLocation);
+		eoLocation.setCustBusinessApp(custBusinessApp);
+		custLocationRepository.save(eoLocation);
+		return custLocationMapper.mapToDTO(eoLocation);
 	}
 
 	@Override
 	public UICustLocation getLocation(long id) {
-		return inventoryLocationMapper.mapToDTO(inventoryLocationRepository.getOne(id));
+		return custLocationMapper.mapToDTO(custLocationRepository.getOne(id));
 	}
 
 	@Override
-	public List<UICustLocation> getLocationList(long inventoryAppId) {
+	public List<UICustLocation> getLocationList(long custBusinessAppId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UICustLocation getLocation(long inventoryAppId, String typeId) {
+	public UICustLocation getLocation(long custBusinessAppId, String typeId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

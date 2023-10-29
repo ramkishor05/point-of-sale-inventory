@@ -2,7 +2,7 @@ package com.brijframework.inventory.entities;
 
 import static com.brijframework.inventory.contants.Constants.CUST_INGR_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_LOCATION_ID;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.EOCUST_INGREDIENT_LOCATION;
 
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = EOCUST_INGREDIENT_LOCATION, uniqueConstraints = { 
-		@UniqueConstraint(columnNames = { CUST_PROD_APP_ID,CUST_INGR_ID, CUST_LOCATION_ID }) })
+		@UniqueConstraint(columnNames = { CUST_BUSSINESS_APP_ID,CUST_INGR_ID, CUST_LOCATION_ID }) })
 public class EOCustIngredientLocation extends EOCustObject{
 
 	/**
@@ -33,9 +33,9 @@ public class EOCustIngredientLocation extends EOCustObject{
 	@JoinColumn(name=CUST_LOCATION_ID)
 	public EOCustLocation custLocation;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	public EOCustIngredient getCustIngredient() {
 		return custIngredient;
@@ -53,12 +53,12 @@ public class EOCustIngredientLocation extends EOCustObject{
 		this.custLocation = custLocation;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
 	}
 	
 }

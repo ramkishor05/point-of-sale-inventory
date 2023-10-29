@@ -1,12 +1,10 @@
 package com.brijframework.inventory.entities;
 
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_UNIT_GROUP;
-import static com.brijframework.inventory.contants.Constants.DISPLAY_NAME;
+import static com.brijframework.inventory.contants.Constants.DESC;
 import static com.brijframework.inventory.contants.Constants.EOCUST_UNIT_GROUP;
-import static com.brijframework.inventory.contants.Constants.LONG_DESC;
 import static com.brijframework.inventory.contants.Constants.NAME;
-import static com.brijframework.inventory.contants.Constants.SHORT_DESC;
 import static com.brijframework.inventory.contants.Constants.TYPE_ID;
 
 import java.util.Set;
@@ -27,67 +25,21 @@ public class EOCustUnitGroup extends EOCustObject {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = TYPE_ID)
-	public String typeId;
-	
-	@Column(name=NAME)
+	@Column(name = NAME)
 	public String name;
 	
-	@Column(name = SHORT_DESC)
-	public String shortDesc;
+	@Column(name = DESC)
+	public String desc;
 	
-	@Column(name = LONG_DESC)
-	public String longDesc;
-	
-	@Column(name = DISPLAY_NAME)
-	public String displayName;
+	@Column(name = TYPE_ID)
+	public String typeId;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	@OneToMany(mappedBy = CUST_UNIT_GROUP)
-	public Set<EOCustUnit> custUnits ;
-
-	public String getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(String typeId) {
-		this.typeId = typeId;
-	}
-
-	public String getShortDesc() {
-		return shortDesc;
-	}
-
-	public void setShortDesc(String shortDesc) {
-		this.shortDesc = shortDesc;
-	}
-
-	public String getLongDesc() {
-		return longDesc;
-	}
-
-	public void setLongDesc(String longDesc) {
-		this.longDesc = longDesc;
-	}
-
-	public String getDisplayName() {
-		return displayName;
-	}
-
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-
-	public Set<EOCustUnit> getCustUnits() {
-		return custUnits;
-	}
-
-	public void setCustUnits(Set<EOCustUnit> custUnits) {
-		this.custUnits = custUnits;
-	}
+	public Set<EOCustUnit> custUnitList ;
 
 	public String getName() {
 		return name;
@@ -97,11 +49,36 @@ public class EOCustUnitGroup extends EOCustObject {
 		this.name = name;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public String getDesc() {
+		return desc;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
+
+	public String getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
+	}
+
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
+	}
+
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
+	}
+
+	public Set<EOCustUnit> getCustUnitList() {
+		return custUnitList;
+	}
+
+	public void setCustUnitList(Set<EOCustUnit> custUnitList) {
+		this.custUnitList = custUnitList;
+	}
+	
 }

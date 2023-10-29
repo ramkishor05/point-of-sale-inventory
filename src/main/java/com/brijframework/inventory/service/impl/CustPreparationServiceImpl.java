@@ -7,62 +7,62 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brijframework.inventory.dto.UICustPreparation;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 import com.brijframework.inventory.entities.EOCustPreparation;
 import com.brijframework.inventory.mapper.CustPreparationMapper;
-import com.brijframework.inventory.repository.CustInventoryAppRepository;
+import com.brijframework.inventory.repository.CustBusinessAppRepository;
 import com.brijframework.inventory.repository.CustPreparationRepository;
 
 @Service
 public class CustPreparationServiceImpl implements CustPreparationService {
 	
 	@Autowired
-	CustInventoryAppRepository inventoryApplicationRepository;
+	CustBusinessAppRepository custBusinessAppRepository;
 	
 	@Autowired
-	CustPreparationRepository inventoryPreparationRepository;
+	CustPreparationRepository custPreparationRepository;
 	
 	@Autowired
-	CustPreparationMapper inventoryPreparationMapper;
+	CustPreparationMapper custPreparationMapper;
 	
 	@Override
-	public UICustPreparation savePreparation(long inventoryAppId, UICustPreparation Preparation) {
-		Optional<EOCustInventoryApp> findById = inventoryApplicationRepository.findById(inventoryAppId);
+	public UICustPreparation savePreparation(long custBusinessAppId, UICustPreparation custPreparation) {
+		Optional<EOCustBusinessApp> findById = custBusinessAppRepository.findById(custBusinessAppId);
 		if(!findById.isPresent()) {
 			return null;
 		}
-		return savePreparation(findById.get(), Preparation);
+		return savePreparation(findById.get(), custPreparation);
 	}
 	
 	@Override
-	public UICustPreparation savePreparation(UICustPreparation Preparation) {
-		Optional<EOCustInventoryApp> findById = inventoryApplicationRepository.findById(Preparation.getCustInventoryAppId());
+	public UICustPreparation savePreparation(UICustPreparation custPreparation) {
+		Optional<EOCustBusinessApp> findById = custBusinessAppRepository.findById(custPreparation.getCustBusinessAppId());
 		if(!findById.isPresent()) {
 			return null;
 		}
-		return savePreparation(findById.get(), Preparation);
+		return savePreparation(findById.get(), custPreparation);
 	}
 	
 	@Override
-	public UICustPreparation savePreparation(EOCustInventoryApp eoInventoryApp,UICustPreparation Preparation) {
-		EOCustPreparation eoPreparation=inventoryPreparationMapper.mapToDAO(Preparation);
-		inventoryPreparationRepository.save(eoPreparation);
-		return inventoryPreparationMapper.mapToDTO(eoPreparation);
+	public UICustPreparation savePreparation(EOCustBusinessApp eoBusinessApp,UICustPreparation custPreparation) {
+		EOCustPreparation eoPreparation=custPreparationMapper.mapToDAO(custPreparation);
+		custPreparationRepository.save(eoPreparation);
+		return custPreparationMapper.mapToDTO(eoPreparation);
 	}
 
 	@Override
 	public UICustPreparation getPreparation(long id) {
-		return inventoryPreparationMapper.mapToDTO(inventoryPreparationRepository.getOne(id));
+		return custPreparationMapper.mapToDTO(custPreparationRepository.getOne(id));
 	}
 
 	@Override
-	public List<UICustPreparation> getPreparationList(long inventoryAppId) {
+	public List<UICustPreparation> getPreparationList(long custBusinessAppId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UICustPreparation getPreparation(long inventoryAppId, String typeId) {
+	public UICustPreparation getPreparation(long custBusinessAppId, String typeId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

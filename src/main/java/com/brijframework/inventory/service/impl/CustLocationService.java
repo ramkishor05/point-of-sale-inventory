@@ -3,20 +3,20 @@ package com.brijframework.inventory.service.impl;
 import java.util.List;
 
 import com.brijframework.inventory.dto.UICustLocation;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 
 public interface CustLocationService {
 
-	UICustLocation saveLocation(long inventoryAppId, UICustLocation Location);
+	UICustLocation saveLocation(long custBusinessAppId, UICustLocation Location);
 
 	UICustLocation saveLocation(UICustLocation Location);
 
-	UICustLocation saveLocation(EOCustInventoryApp eoInventoryApp, UICustLocation Location);
+	UICustLocation saveLocation(EOCustBusinessApp custBusinessApp, UICustLocation Location);
 
 	UICustLocation getLocation(long id);
 
-	List<UICustLocation> getLocationList(long inventoryAppId);
+	List<UICustLocation> getLocationList(long custBusinessAppId);
 
-	UICustLocation getLocation(long inventoryAppId, String typeId);
+	UICustLocation getLocation(long custBusinessAppId, String typeId);
 
 }

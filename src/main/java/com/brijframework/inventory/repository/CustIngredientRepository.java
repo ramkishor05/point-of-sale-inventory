@@ -12,10 +12,10 @@ import com.brijframework.inventory.entities.EOCustIngredient;
 @Transactional
 public interface CustIngredientRepository extends JpaRepository<EOCustIngredient, Long>{
 	
-	EOCustIngredient findOneByCustInventoryAppIdAndTypeId(long custProductIonAppId, String typeId);
+	EOCustIngredient findOneByCustBusinessAppIdAndTypeId(long custProductIonAppId, String typeId);
 
-	List<EOCustIngredient> findAllByCustInventoryAppId(long custProductIonAppId);
+	List<EOCustIngredient> findAllByCustBusinessAppId(long custProductIonAppId);
 
-	EOCustIngredient findByCustInventoryAppIdAndTypeId(long custProductIonAppId, String typeId);
+	EOCustIngredient findByCustBusinessAppIdAndTypeId(long custProductIonAppId, String typeId);
 
 }

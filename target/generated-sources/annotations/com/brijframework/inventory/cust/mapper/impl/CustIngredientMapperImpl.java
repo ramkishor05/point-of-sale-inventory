@@ -1,8 +1,8 @@
 package com.brijframework.inventory.cust.mapper.impl;
 
 import com.brijframework.inventory.dto.UICustIngredient;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 import com.brijframework.inventory.entities.EOCustIngredient;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
 import com.brijframework.inventory.entities.EOCustUnit;
 import com.brijframework.inventory.entities.EOGlobalMediaDetail;
 import com.brijframework.inventory.mapper.CustIngredientMapper;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-13T22:22:08+0530",
+    date = "2023-10-29T23:49:27+0530",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.19 (Oracle Corporation)"
 )
 @Component
@@ -55,9 +55,9 @@ public class CustIngredientMapperImpl implements CustIngredientMapper {
 
         EOCustIngredient eOCustIngredient = new EOCustIngredient();
 
-        eOCustIngredient.setCustInventoryApp( uICustIngredientToEOCustInventoryApp( uiCustIngredient ) );
         eOCustIngredient.setCustReptUnit( uICustIngredientToEOCustUnit( uiCustIngredient ) );
         eOCustIngredient.setCustBaseUnit( uICustIngredientToEOCustUnit1( uiCustIngredient ) );
+        eOCustIngredient.setCustBusinessApp( uICustIngredientToEOCustBusinessApp( uiCustIngredient ) );
         eOCustIngredient.setGlbImgDetail( uICustIngredientToEOGlobalMediaDetail( uiCustIngredient ) );
         eOCustIngredient.setCustCategoryId( uiCustIngredient.getCustCategoryId() );
         eOCustIngredient.setId( uiCustIngredient.getId() );
@@ -76,24 +76,24 @@ public class CustIngredientMapperImpl implements CustIngredientMapper {
 
         UICustIngredient uICustIngredient = new UICustIngredient();
 
-        Long id = eoCustIngredientCustBaseUnitId( eoCustIngredient );
+        Long id = eoCustIngredientCustBusinessAppId( eoCustIngredient );
         if ( id != null ) {
-            uICustIngredient.setCustBaseUnitId( id );
+            uICustIngredient.setCustBusinessAppId( id );
+        }
+        Long id1 = eoCustIngredientCustBaseUnitId( eoCustIngredient );
+        if ( id1 != null ) {
+            uICustIngredient.setCustBaseUnitId( id1 );
         }
         if ( eoCustIngredient.getCustCategoryId() != null ) {
             uICustIngredient.setCustCategoryId( eoCustIngredient.getCustCategoryId() );
         }
-        Long id1 = eoCustIngredientGlbImgDetailId( eoCustIngredient );
-        if ( id1 != null ) {
-            uICustIngredient.setGlbImgDetailId( id1 );
-        }
-        Long id2 = eoCustIngredientCustReptUnitId( eoCustIngredient );
+        Long id2 = eoCustIngredientGlbImgDetailId( eoCustIngredient );
         if ( id2 != null ) {
-            uICustIngredient.setCustReptUnitId( id2 );
+            uICustIngredient.setGlbImgDetailId( id2 );
         }
-        Long id3 = eoCustIngredientCustInventoryAppId( eoCustIngredient );
+        Long id3 = eoCustIngredientCustReptUnitId( eoCustIngredient );
         if ( id3 != null ) {
-            uICustIngredient.setCustInventoryAppId( id3 );
+            uICustIngredient.setCustReptUnitId( id3 );
         }
         if ( eoCustIngredient.getId() != null ) {
             uICustIngredient.setId( eoCustIngredient.getId() );
@@ -103,18 +103,6 @@ public class CustIngredientMapperImpl implements CustIngredientMapper {
         uICustIngredient.setLogoUrl( eoCustIngredient.getLogoUrl() );
 
         return uICustIngredient;
-    }
-
-    protected EOCustInventoryApp uICustIngredientToEOCustInventoryApp(UICustIngredient uICustIngredient) {
-        if ( uICustIngredient == null ) {
-            return null;
-        }
-
-        EOCustInventoryApp eOCustInventoryApp = new EOCustInventoryApp();
-
-        eOCustInventoryApp.setId( uICustIngredient.getCustInventoryAppId() );
-
-        return eOCustInventoryApp;
     }
 
     protected EOCustUnit uICustIngredientToEOCustUnit(UICustIngredient uICustIngredient) {
@@ -141,6 +129,18 @@ public class CustIngredientMapperImpl implements CustIngredientMapper {
         return eOCustUnit;
     }
 
+    protected EOCustBusinessApp uICustIngredientToEOCustBusinessApp(UICustIngredient uICustIngredient) {
+        if ( uICustIngredient == null ) {
+            return null;
+        }
+
+        EOCustBusinessApp eOCustBusinessApp = new EOCustBusinessApp();
+
+        eOCustBusinessApp.setId( uICustIngredient.getCustBusinessAppId() );
+
+        return eOCustBusinessApp;
+    }
+
     protected EOGlobalMediaDetail uICustIngredientToEOGlobalMediaDetail(UICustIngredient uICustIngredient) {
         if ( uICustIngredient == null ) {
             return null;
@@ -151,6 +151,21 @@ public class CustIngredientMapperImpl implements CustIngredientMapper {
         eOGlobalMediaDetail.setId( uICustIngredient.getGlbImgDetailId() );
 
         return eOGlobalMediaDetail;
+    }
+
+    private Long eoCustIngredientCustBusinessAppId(EOCustIngredient eOCustIngredient) {
+        if ( eOCustIngredient == null ) {
+            return null;
+        }
+        EOCustBusinessApp custBusinessApp = eOCustIngredient.getCustBusinessApp();
+        if ( custBusinessApp == null ) {
+            return null;
+        }
+        Long id = custBusinessApp.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
     }
 
     private Long eoCustIngredientCustBaseUnitId(EOCustIngredient eOCustIngredient) {
@@ -192,21 +207,6 @@ public class CustIngredientMapperImpl implements CustIngredientMapper {
             return null;
         }
         Long id = custReptUnit.getId();
-        if ( id == null ) {
-            return null;
-        }
-        return id;
-    }
-
-    private Long eoCustIngredientCustInventoryAppId(EOCustIngredient eOCustIngredient) {
-        if ( eOCustIngredient == null ) {
-            return null;
-        }
-        EOCustInventoryApp custInventoryApp = eOCustIngredient.getCustInventoryApp();
-        if ( custInventoryApp == null ) {
-            return null;
-        }
-        Long id = custInventoryApp.getId();
         if ( id == null ) {
             return null;
         }

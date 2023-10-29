@@ -12,10 +12,10 @@ import com.brijframework.inventory.entities.EOCustLocation;
 @Transactional
 public interface CustLocationRepository extends JpaRepository<EOCustLocation, Long>{
 	
-	EOCustLocation findOneByCustInventoryAppIdAndTypeId(long custInventoryAppId, String typeId);
+	EOCustLocation findOneByCustBusinessAppIdAndTypeId(long custBusinessAppId, String typeId);
 
-	List<EOCustLocation> findAllByCustInventoryAppId(long custInventoryAppId);
+	List<EOCustLocation> findAllByCustBusinessAppId(long custBusinessAppId);
 
-	EOCustLocation findByCustInventoryAppIdAndTypeId(long custInventoryAppId, String typeId);
+	EOCustLocation findByCustBusinessAppIdAndTypeId(long custBusinessAppId, String typeId);
 
 }

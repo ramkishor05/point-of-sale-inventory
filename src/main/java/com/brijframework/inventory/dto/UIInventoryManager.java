@@ -12,17 +12,8 @@ public class UIInventoryManager {
 	private double totalInvValue;
 	private long numWarnings;
 	private long countFreq;
-	private long custInventoryAppId;
+	private long custBusinessAppId;
 
-	public long getCustInventoryAppId() {
-		return custInventoryAppId;
-	}
-
-	public void setCustInventoryAppId(long custInventoryAppId) {
-		this.custInventoryAppId = custInventoryAppId;
-	}
-
-	
 	public Date getBusiDate() {
 		return busiDate;
 	}
@@ -87,36 +78,12 @@ public class UIInventoryManager {
 		this.countFreq = countFreq;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((busiDate == null) ? 0 : busiDate.hashCode());
-		result = prime * result + (int) (countFreq ^ (countFreq >>> 32));
-		result = prime * result + (posted ? 1231 : 1237);
-		return result;
+	public long getCustBusinessAppId() {
+		return custBusinessAppId;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UIInventoryManager other = (UIInventoryManager) obj;
-		if (busiDate == null) {
-			if (other.busiDate != null)
-				return false;
-		} else if (!busiDate.equals(other.busiDate))
-			return false;
-		if (countFreq != other.countFreq)
-			return false;
-		if (posted != other.posted)
-			return false;
-		return true;
+	public void setCustBusinessAppId(long custBusinessAppId) {
+		this.custBusinessAppId = custBusinessAppId;
 	}
 
-	
 }

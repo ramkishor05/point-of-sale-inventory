@@ -1,5 +1,6 @@
 package com.brijframework.inventory.entities;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
+import static com.brijframework.inventory.contants.Constants.DAYS;
 import static com.brijframework.inventory.contants.Constants.DESC;
 import static com.brijframework.inventory.contants.Constants.EOCUST_COUNT_FREQ;
 import static com.brijframework.inventory.contants.Constants.NAME;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = EOCUST_COUNT_FREQ, uniqueConstraints = {@UniqueConstraint (columnNames = {CUST_PROD_APP_ID, NAME})})
+@Table(name = EOCUST_COUNT_FREQ, uniqueConstraints = {@UniqueConstraint (columnNames = {CUST_BUSSINESS_APP_ID, NAME})})
 public class EOCustCountFreq extends EOCustObject{
 	
 
@@ -27,10 +28,13 @@ public class EOCustCountFreq extends EOCustObject{
 	
 	@Column(name = TYPE_ID)
 	public String typeId;
+	
+	@Column(name = DAYS)
+	public Long days;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	public String getName() {
 		return name;
@@ -56,13 +60,20 @@ public class EOCustCountFreq extends EOCustObject{
 		this.typeId = typeId;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public Long getDays() {
+		return days;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setDays(Long days) {
+		this.days = days;
 	}
 
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
+	}
+
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
+	}
 	
 }

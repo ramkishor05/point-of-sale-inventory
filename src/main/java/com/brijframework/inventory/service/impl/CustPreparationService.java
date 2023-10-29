@@ -3,20 +3,20 @@ package com.brijframework.inventory.service.impl;
 import java.util.List;
 
 import com.brijframework.inventory.dto.UICustPreparation;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 
 public interface CustPreparationService {
 
-	UICustPreparation savePreparation(long inventoryAppId, UICustPreparation Preparation);
+	UICustPreparation savePreparation(long custBusinessAppId, UICustPreparation custPreparation);
 
-	UICustPreparation savePreparation(UICustPreparation Preparation);
+	UICustPreparation savePreparation(UICustPreparation custPreparation);
 
-	UICustPreparation savePreparation(EOCustInventoryApp eoInventoryApp, UICustPreparation Preparation);
+	UICustPreparation savePreparation(EOCustBusinessApp custBusinessApp, UICustPreparation custPreparation);
 
 	UICustPreparation getPreparation(long id);
 
-	List<UICustPreparation> getPreparationList(long inventoryAppId);
+	List<UICustPreparation> getPreparationList(long custBusinessAppId);
 
-	UICustPreparation getPreparation(long inventoryAppId, String typeId);
+	UICustPreparation getPreparation(long custBusinessAppId, String typeId);
 
 }

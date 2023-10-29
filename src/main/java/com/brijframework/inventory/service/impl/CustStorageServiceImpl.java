@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brijframework.inventory.dto.UICustStorage;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 import com.brijframework.inventory.entities.EOCustStorage;
 import com.brijframework.inventory.mapper.CustStorageMapper;
-import com.brijframework.inventory.repository.CustInventoryAppRepository;
+import com.brijframework.inventory.repository.CustBusinessAppRepository;
 import com.brijframework.inventory.repository.CustStorageRepository;
 
 @Service
 public class CustStorageServiceImpl implements CustStorageService {
 	
 	@Autowired
-	CustInventoryAppRepository inventoryApplicationRepository;
+	CustBusinessAppRepository inventoryApplicationRepository;
 	
 	@Autowired
 	CustStorageRepository inventoryStorageRepository;
@@ -27,7 +27,7 @@ public class CustStorageServiceImpl implements CustStorageService {
 	
 	@Override
 	public UICustStorage saveStorage(long inventoryAppId, UICustStorage Storage) {
-		Optional<EOCustInventoryApp> findById = inventoryApplicationRepository.findById(inventoryAppId);
+		Optional<EOCustBusinessApp> findById = inventoryApplicationRepository.findById(inventoryAppId);
 		if(!findById.isPresent()) {
 			return null;
 		}
@@ -36,7 +36,7 @@ public class CustStorageServiceImpl implements CustStorageService {
 	
 	@Override
 	public UICustStorage saveStorage(UICustStorage Storage) {
-		Optional<EOCustInventoryApp> findById = inventoryApplicationRepository.findById(Storage.getCustInventoryAppId());
+		Optional<EOCustBusinessApp> findById = inventoryApplicationRepository.findById(Storage.getCustBusinessAppId());
 		if(!findById.isPresent()) {
 			return null;
 		}
@@ -44,7 +44,7 @@ public class CustStorageServiceImpl implements CustStorageService {
 	}
 	
 	@Override
-	public UICustStorage saveStorage(EOCustInventoryApp eoInventoryApp,UICustStorage Storage) {
+	public UICustStorage saveStorage(EOCustBusinessApp eoBusinessApp,UICustStorage Storage) {
 		EOCustStorage eoStorage=inventoryStorageMapper.mapToDAO(Storage);
 		inventoryStorageRepository.save(eoStorage);
 		return inventoryStorageMapper.mapToDTO(eoStorage);
@@ -57,12 +57,12 @@ public class CustStorageServiceImpl implements CustStorageService {
 
 	@Override
 	public List<UICustStorage> getStorageList(long inventoryAppId) {
-		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findAllByCustInventoryAppId(inventoryAppId));
+		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findAllByCustBusinessAppId(inventoryAppId));
 	}
 	
 	@Override
 	public UICustStorage getStorage(long inventoryAppId,String typeId) {
-		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findByCustInventoryAppIdAndTypeId(inventoryAppId, typeId));
+		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.findByCustBusinessAppIdAndTypeId(inventoryAppId, typeId));
 	}
 
 }

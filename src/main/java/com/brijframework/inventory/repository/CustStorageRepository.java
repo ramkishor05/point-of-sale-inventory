@@ -14,8 +14,8 @@ public interface CustStorageRepository extends JpaRepository<EOCustStorage, Long
 	
 	EOCustStorage findOneByTypeId(String typeId);
 
-	List<EOCustStorage> findAllByCustInventoryAppId(long custInventoryAppId);
+	List<EOCustStorage> findAllByCustBusinessAppId(long custBusinessAppId);
 
-	EOCustStorage findByCustInventoryAppIdAndTypeId(long custInventoryAppId, String typeId);
+	EOCustStorage findByCustBusinessAppIdAndTypeId(long custBusinessAppId, String typeId);
 
 }

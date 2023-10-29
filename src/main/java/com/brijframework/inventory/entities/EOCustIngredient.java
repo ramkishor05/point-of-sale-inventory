@@ -3,7 +3,7 @@ package com.brijframework.inventory.entities;
 import static com.brijframework.inventory.contants.Constants.CUST_BASE_UNIT_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_CATEGORY_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_INGREDIENT;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_RPT_UNIT_ID;
 import static com.brijframework.inventory.contants.Constants.EOCUST_INGREDIENT;
 import static com.brijframework.inventory.contants.Constants.GLB_IMG_ID;
@@ -24,14 +24,14 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = EOCUST_INGREDIENT, uniqueConstraints = { @UniqueConstraint(columnNames = { CUST_PROD_APP_ID, IDEN_NO }) })
+@Table(name = EOCUST_INGREDIENT, uniqueConstraints = { @UniqueConstraint(columnNames = { CUST_BUSSINESS_APP_ID, IDEN_NO }) })
 public class EOCustIngredient extends EOCustItem {
 
 	private static final long serialVersionUID = 1L;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	@OneToOne
 	@JoinColumn(name = GLB_IMG_ID, nullable = true)
@@ -49,10 +49,18 @@ public class EOCustIngredient extends EOCustItem {
 	public Long custCategoryId;
 
 	@OneToMany(mappedBy = CUST_INGREDIENT)
-	public Set<EOCustIngredientLocation> custIngredientLocations;
+	public Set<EOCustIngredientLocation> custIngredientLocationList;
 
 	@OneToMany(mappedBy = CUST_INGREDIENT)
-	public Set<EOCustIngredientCountFreq> custIngredientCountFreqs;
+	public Set<EOCustIngredientCountFreq> custIngredientCountFreqList;
+
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
+	}
+
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
+	}
 
 	public EOGlobalMediaDetail getGlbImgDetail() {
 		return glbImgDetail;
@@ -78,14 +86,6 @@ public class EOCustIngredient extends EOCustItem {
 		this.custReptUnit = custReptUnit;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
-	}
-
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
-	}
-
 	public Long getCustCategoryId() {
 		return custCategoryId;
 	}
@@ -94,19 +94,19 @@ public class EOCustIngredient extends EOCustItem {
 		this.custCategoryId = custCategoryId;
 	}
 
-	public Set<EOCustIngredientLocation> getCustIngredientLocations() {
-		return custIngredientLocations;
+	public Set<EOCustIngredientLocation> getCustIngredientLocationList() {
+		return custIngredientLocationList;
 	}
 
-	public void setCustIngredientLocations(Set<EOCustIngredientLocation> custIngredientLocations) {
-		this.custIngredientLocations = custIngredientLocations;
+	public void setCustIngredientLocationList(Set<EOCustIngredientLocation> custIngredientLocationList) {
+		this.custIngredientLocationList = custIngredientLocationList;
 	}
 
-	public Set<EOCustIngredientCountFreq> getCustIngredientCountFreqs() {
-		return custIngredientCountFreqs;
+	public Set<EOCustIngredientCountFreq> getCustIngredientCountFreqList() {
+		return custIngredientCountFreqList;
 	}
 
-	public void setCustIngredientCountFreqs(Set<EOCustIngredientCountFreq> custIngredientCountFreqs) {
-		this.custIngredientCountFreqs = custIngredientCountFreqs;
+	public void setCustIngredientCountFreqList(Set<EOCustIngredientCountFreq> custIngredientCountFreqList) {
+		this.custIngredientCountFreqList = custIngredientCountFreqList;
 	}
 }

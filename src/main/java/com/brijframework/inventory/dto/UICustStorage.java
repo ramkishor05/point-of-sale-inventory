@@ -6,10 +6,10 @@ public class UICustStorage implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private long id;
-	private float displayOrder;
 	private String name;
 	private String typeId;
-	private long custInventoryAppId;
+	private float orderSequence;
+	private long custBusinessAppId;
 
 	public long getId() {
 		return id;
@@ -17,14 +17,6 @@ public class UICustStorage implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public float getDisplayOrder() {
-		return displayOrder;
-	}
-
-	public void setDisplayOrder(float displayOrder) {
-		this.displayOrder = displayOrder;
 	}
 
 	public String getName() {
@@ -43,12 +35,20 @@ public class UICustStorage implements Serializable {
 		this.typeId = typeId;
 	}
 
-	public long getCustInventoryAppId() {
-		return custInventoryAppId;
+	public float getOrderSequence() {
+		return orderSequence;
 	}
 
-	public void setCustInventoryAppId(long custInventoryAppId) {
-		this.custInventoryAppId = custInventoryAppId;
+	public void setOrderSequence(float orderSequence) {
+		this.orderSequence = orderSequence;
+	}
+
+	public long getCustBusinessAppId() {
+		return custBusinessAppId;
+	}
+
+	public void setCustBusinessAppId(long custBusinessAppId) {
+		this.custBusinessAppId = custBusinessAppId;
 	}
 
 }

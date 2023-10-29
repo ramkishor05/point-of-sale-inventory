@@ -20,7 +20,6 @@ D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\en
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\service\impl\CustIngredientServiceImpl.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\dto\UICustPreparation.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\controller\CustLocationController.java
-D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustInventoryApp.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustIngredientLocation.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\service\impl\CustStorageService.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustPreparation.java
@@ -46,14 +45,15 @@ D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\ma
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\dto\UIIngrSummary.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\dto\UIPrepLocation.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\dto\UIInventoryManager.java
-D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\repository\CustInventoryAppRepository.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustProductRecipe.java
+D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\repository\CustBusinessAppRepository.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustPreparationRecipe.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\InventoryMainApp.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustProduct.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\service\impl\CustStorageServiceImpl.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustPreparationCountFreq.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\controller\CustPreparationController.java
+D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustBusinessApp.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustPreparationLocation.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\service\impl\CustPreparationService.java
 D:\projects\point_of_sale_inventory\src\main\java\com\brijframework\inventory\entities\EOCustUnitGroup.java

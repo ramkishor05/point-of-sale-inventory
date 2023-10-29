@@ -6,8 +6,8 @@ public class Constants {
 	public static final String VENDOR_APP_ID = "vendorId";
 
 	public static final String SPRING = "spring";
-	public static final String CUST_PROD_APP_ID_ENTITY = "custInventoryApp.id";
-	public static final String CUST_PROD_APP_ID_UI = "custInventoryAppId";
+	public static final String CUST_BUSINESS_APP_ID_ENTITY = "custBusinessApp.id";
+	public static final String CUST_BUSINESS_APP_ID_UI = "custBusinessAppId";
 
 	public static final String CUST_IMG_DETAIL_ID_ENTITY = "custImageDetail.id";
 	public static final String CUST_IMG_DETAIL_ID_UI = "custImageDetailId";
@@ -41,14 +41,15 @@ public class Constants {
 
 	public static final String EOCUST_CATEGORY_GROUP = "EOCUST_CATEGORY_Group";
 	public static final String EOCUST_CATEGORY = "EOCUST_CATEGORY";
-	public static final String CUST_PROD_APP_ID = "CUST_PROD_APP_ID";
+	public static final String CUST_BUSSINESS_APP_ID = "CUST_BUSINESS_APP_ID";
+	public static final String DAYS="DAYS";
 	public static final String CUSTOMER_ID = "CUSTOMER_ID";
 	public static final String GROUP_ID = "GROUP_ID";
 	public static final String BRAND = "BRAND";
 	public static final String GTIN = "GTIN";
 	public static final String MPN = "MPN";
 	public static final String NAME = "NAME";
-	public static final String DESC = "DESCS";
+	public static final String DESC = "DESCRIPTION";
 	public static final String TYPE_ID = "TYPE_ID";
 	public static final String TYPE = "TYPE";
 	public static final String URL = "URL";
@@ -101,14 +102,18 @@ public class Constants {
 	public static final String ATTRIBUTE_VALUE = "ATTRIBUTE_VALUE";
 	public static final String ATTRIBUTE_NAME = "ATTRIBUTE_NAME";
 	public static final String SECTION_NAME = "SECTION_NAME";
+	public static final String EOCUST_BUSSINESS_APP = "EOCUST_BUSSINESS_APP";
 	public static final String EOCUST_INVENTORY_APP = "EOCUST_INVENTORY_APP";
 	public static final String EOSUPPLIER = "EOSUPPLIER";
 	public static final String EOVENDOR = "EOVENDOR";
 	public static final String EOCUSTOMER = "EOCUSTOMER";
 	public static final String EOBUSINESS = "EOBUSINESS";
-	public static final String CUST_PRODUCTION_APP = "custInventoryApp";
-	public static final String CUST_ID = "CUST_ID";
-	public static final String APP_ID = "APP_ID";
+	public static final String CUST_BUSINESS_APP = "custBusinessApp";
+	public static final String OWNER_ID = "OWNER_ID";
+	public static final String BUSSINESS_ID = "BUSSINESS_ID";
+	public static final String APPLICATION_ID = "APPLICATION_ID";
+	public static final String VERSION = "VERSION";
+
 	public static final String VENDOR_ID = "VENDOR_ID";
 	public static final String SUPPLIER_ID = "SUPPLIER_ID";
 

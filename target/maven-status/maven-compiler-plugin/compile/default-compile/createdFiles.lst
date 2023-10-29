@@ -9,9 +9,9 @@ com\brijframework\inventory\service\impl\CustIngredientService.class
 com\brijframework\inventory\service\impl\CustStorageServiceImpl.class
 com\brijframework\inventory\dto\UIPrepCountFreq.class
 com\brijframework\inventory\dto\UIInventoryManager.class
-com\brijframework\inventory\entities\EOCustInventoryApp.class
 com\brijframework\inventory\entities\EOCustPreparationRecipe.class
 com\brijframework\inventory\entities\EOCustProductRecipe.class
+com\brijframework\inventory\repository\CustBusinessAppRepository.class
 com\brijframework\inventory\dto\UIIngrCountFreq.class
 com\brijframework\inventory\mapper\CustPreparationMapper.class
 com\brijframework\inventory\dto\UIProdLocation.class
@@ -58,7 +58,7 @@ com\brijframework\inventory\entities\EOCustUnitGroup.class
 com\brijframework\inventory\mapper\CustLocationMapper.class
 com\brijframework\inventory\cust\mapper\impl\CustStorageMapperImpl.class
 com\brijframework\inventory\service\impl\CustPreparationServiceImpl.class
+com\brijframework\inventory\entities\EOCustBusinessApp.class
 com\brijframework\inventory\controller\CustIngredientController.class
 com\brijframework\inventory\entities\EOCustIngredientCountFreq.class
-com\brijframework\inventory\repository\CustInventoryAppRepository.class
 com\brijframework\inventory\entities\EOCustCountFreq.class

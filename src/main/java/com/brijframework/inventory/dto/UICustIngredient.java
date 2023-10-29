@@ -16,11 +16,11 @@ public class UICustIngredient implements Serializable {
 	private long custBaseUnitId;
 	private long custReptUnitId;
 	private long glbImgDetailId;
-	private long custInventoryAppId;
+	private long custBusinessAppId;
 
-	private List<UIIngrLocation> locations;
+	private List<UIIngrLocation> custLocationList;
 
-	private List<UIIngrCountFreq> countFreqs;
+	private List<UIIngrCountFreq> custCountFreqList;
 
 	public long getId() {
 		return id;
@@ -94,28 +94,27 @@ public class UICustIngredient implements Serializable {
 		this.glbImgDetailId = glbImgDetailId;
 	}
 
-	public long getCustInventoryAppId() {
-		return custInventoryAppId;
+	public long getCustBusinessAppId() {
+		return custBusinessAppId;
 	}
 
-	public void setCustInventoryAppId(long custInventoryAppId) {
-		this.custInventoryAppId = custInventoryAppId;
+	public void setCustBusinessAppId(long custBusinessAppId) {
+		this.custBusinessAppId = custBusinessAppId;
 	}
 
-	public List<UIIngrLocation> getLocations() {
-		return locations;
+	public List<UIIngrLocation> getCustLocationList() {
+		return custLocationList;
 	}
 
-	public void setLocations(List<UIIngrLocation> locations) {
-		this.locations = locations;
+	public void setCustLocationList(List<UIIngrLocation> custLocationList) {
+		this.custLocationList = custLocationList;
 	}
 
-	public List<UIIngrCountFreq> getCountFreqs() {
-		return countFreqs;
+	public List<UIIngrCountFreq> getCustCountFreqList() {
+		return custCountFreqList;
 	}
 
-	public void setCountFreqs(List<UIIngrCountFreq> countFreqs) {
-		this.countFreqs = countFreqs;
+	public void setCustCountFreqList(List<UIIngrCountFreq> custCountFreqList) {
+		this.custCountFreqList = custCountFreqList;
 	}
-
 }

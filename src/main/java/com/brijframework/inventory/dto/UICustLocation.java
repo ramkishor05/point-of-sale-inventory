@@ -6,12 +6,12 @@ public class UICustLocation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private long id;
-	private String idenNo;
-	private float orderSequence;
 	private String name;
-	private long custInventoryAppId;
-	private long custStorageId;
+	private String idenNo;
 	private String typeId;
+	private float orderSequence;
+	private long custStorageId;
+	private long custBusinessAppId;
 
 	public long getId() {
 		return id;
@@ -19,22 +19,6 @@ public class UICustLocation implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getIdenNo() {
-		return idenNo;
-	}
-
-	public void setIdenNo(String idenNo) {
-		this.idenNo = idenNo;
-	}
-
-	public float getOrderSequence() {
-		return orderSequence;
-	}
-
-	public void setOrderSequence(float orderSequence) {
-		this.orderSequence = orderSequence;
 	}
 
 	public String getName() {
@@ -45,12 +29,28 @@ public class UICustLocation implements Serializable {
 		this.name = name;
 	}
 
-	public long getCustInventoryAppId() {
-		return custInventoryAppId;
+	public String getIdenNo() {
+		return idenNo;
 	}
 
-	public void setCustInventoryAppId(long custInventoryAppId) {
-		this.custInventoryAppId = custInventoryAppId;
+	public void setIdenNo(String idenNo) {
+		this.idenNo = idenNo;
+	}
+
+	public String getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
+	}
+
+	public float getOrderSequence() {
+		return orderSequence;
+	}
+
+	public void setOrderSequence(float orderSequence) {
+		this.orderSequence = orderSequence;
 	}
 
 	public long getCustStorageId() {
@@ -61,12 +61,12 @@ public class UICustLocation implements Serializable {
 		this.custStorageId = custStorageId;
 	}
 
-	public String getTypeId() {
-		return typeId;
+	public long getCustBusinessAppId() {
+		return custBusinessAppId;
 	}
 
-	public void setTypeId(String typeId) {
-		this.typeId = typeId;
+	public void setCustBusinessAppId(long custBusinessAppId) {
+		this.custBusinessAppId = custBusinessAppId;
 	}
 
 }

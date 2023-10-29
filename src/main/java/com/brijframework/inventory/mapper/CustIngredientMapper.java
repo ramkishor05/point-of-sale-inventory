@@ -4,8 +4,8 @@ import static com.brijframework.inventory.contants.Constants.CUST_BASE_UNIT_ID_E
 import static com.brijframework.inventory.contants.Constants.CUST_BASE_UNIT_ID_UI;
 import static com.brijframework.inventory.contants.Constants.CUST_CATEGORY_ID_ENTITY;
 import static com.brijframework.inventory.contants.Constants.CUST_CATEGORY_ID_UI;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID_ENTITY;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID_UI;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSINESS_APP_ID_ENTITY;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSINESS_APP_ID_UI;
 import static com.brijframework.inventory.contants.Constants.CUST_REPT_UNIT_ID_ENTITY;
 import static com.brijframework.inventory.contants.Constants.CUST_REPT_UNIT_ID_UI;
 import static com.brijframework.inventory.contants.Constants.GLB_IMAGE_ID_ENTITY;
@@ -22,7 +22,7 @@ import com.brijframework.inventory.entities.EOCustIngredient;
 public interface CustIngredientMapper  extends GenericMapper<EOCustIngredient, UICustIngredient>{
 	
 
-	@Mapping(target=CUST_PROD_APP_ID_ENTITY, source=CUST_PROD_APP_ID_UI)
+	@Mapping(target=CUST_BUSINESS_APP_ID_ENTITY, source=CUST_BUSINESS_APP_ID_UI)
 	@Mapping(target=CUST_BASE_UNIT_ID_ENTITY, source=CUST_BASE_UNIT_ID_UI)
 	@Mapping(target=CUST_REPT_UNIT_ID_ENTITY, source=CUST_REPT_UNIT_ID_UI)
 	@Mapping(target=CUST_CATEGORY_ID_ENTITY, source=CUST_CATEGORY_ID_UI)
@@ -30,7 +30,7 @@ public interface CustIngredientMapper  extends GenericMapper<EOCustIngredient, U
 	@Override
 	EOCustIngredient mapToDAO(UICustIngredient uiCustIngredient);
 	
-	@Mapping(source=CUST_PROD_APP_ID_ENTITY, target=CUST_PROD_APP_ID_UI)
+	@Mapping(source=CUST_BUSINESS_APP_ID_ENTITY, target=CUST_BUSINESS_APP_ID_UI)
 	@Mapping(source=CUST_CATEGORY_ID_ENTITY, target=CUST_CATEGORY_ID_UI)
 	@Mapping(source=CUST_BASE_UNIT_ID_ENTITY, target=CUST_BASE_UNIT_ID_UI)
 	@Mapping(source=CUST_REPT_UNIT_ID_ENTITY, target=CUST_REPT_UNIT_ID_UI)

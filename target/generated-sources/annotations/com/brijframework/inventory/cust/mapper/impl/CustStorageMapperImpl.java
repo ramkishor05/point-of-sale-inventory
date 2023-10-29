@@ -1,7 +1,7 @@
 package com.brijframework.inventory.cust.mapper.impl;
 
 import com.brijframework.inventory.dto.UICustStorage;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 import com.brijframework.inventory.entities.EOCustStorage;
 import com.brijframework.inventory.mapper.CustStorageMapper;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-13T22:22:08+0530",
+    date = "2023-10-29T23:49:28+0530",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.19 (Oracle Corporation)"
 )
 @Component
@@ -53,8 +53,9 @@ public class CustStorageMapperImpl implements CustStorageMapper {
 
         EOCustStorage eOCustStorage = new EOCustStorage();
 
-        eOCustStorage.setCustInventoryApp( uICustStorageToEOCustInventoryApp( uiStorage ) );
+        eOCustStorage.setCustBusinessApp( uICustStorageToEOCustBusinessApp( uiStorage ) );
         eOCustStorage.setId( uiStorage.getId() );
+        eOCustStorage.setOrderSequence( uiStorage.getOrderSequence() );
         eOCustStorage.setName( uiStorage.getName() );
         eOCustStorage.setTypeId( uiStorage.getTypeId() );
 
@@ -69,40 +70,43 @@ public class CustStorageMapperImpl implements CustStorageMapper {
 
         UICustStorage uICustStorage = new UICustStorage();
 
-        Long id = eoInvStorageCustInventoryAppId( eoInvStorage );
+        Long id = eoInvStorageCustBusinessAppId( eoInvStorage );
         if ( id != null ) {
-            uICustStorage.setCustInventoryAppId( id );
+            uICustStorage.setCustBusinessAppId( id );
         }
         if ( eoInvStorage.getId() != null ) {
             uICustStorage.setId( eoInvStorage.getId() );
         }
         uICustStorage.setName( eoInvStorage.getName() );
         uICustStorage.setTypeId( eoInvStorage.getTypeId() );
+        if ( eoInvStorage.getOrderSequence() != null ) {
+            uICustStorage.setOrderSequence( eoInvStorage.getOrderSequence() );
+        }
 
         return uICustStorage;
     }
 
-    protected EOCustInventoryApp uICustStorageToEOCustInventoryApp(UICustStorage uICustStorage) {
+    protected EOCustBusinessApp uICustStorageToEOCustBusinessApp(UICustStorage uICustStorage) {
         if ( uICustStorage == null ) {
             return null;
         }
 
-        EOCustInventoryApp eOCustInventoryApp = new EOCustInventoryApp();
+        EOCustBusinessApp eOCustBusinessApp = new EOCustBusinessApp();
 
-        eOCustInventoryApp.setId( uICustStorage.getCustInventoryAppId() );
+        eOCustBusinessApp.setId( uICustStorage.getCustBusinessAppId() );
 
-        return eOCustInventoryApp;
+        return eOCustBusinessApp;
     }
 
-    private Long eoInvStorageCustInventoryAppId(EOCustStorage eOCustStorage) {
+    private Long eoInvStorageCustBusinessAppId(EOCustStorage eOCustStorage) {
         if ( eOCustStorage == null ) {
             return null;
         }
-        EOCustInventoryApp custInventoryApp = eOCustStorage.getCustInventoryApp();
-        if ( custInventoryApp == null ) {
+        EOCustBusinessApp custBusinessApp = eOCustStorage.getCustBusinessApp();
+        if ( custBusinessApp == null ) {
             return null;
         }
-        Long id = custInventoryApp.getId();
+        Long id = custBusinessApp.getId();
         if ( id == null ) {
             return null;
         }

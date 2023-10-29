@@ -2,7 +2,7 @@ package com.brijframework.inventory.entities;
 
 import static com.brijframework.inventory.contants.Constants.CUST_COUNT_FREQ_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_PREP_ID;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.EOCUST_PREPARATION_COUNT_FREQ;
 
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = EOCUST_PREPARATION_COUNT_FREQ, uniqueConstraints = {
-		@UniqueConstraint(columnNames = { CUST_PROD_APP_ID, CUST_PREP_ID, CUST_COUNT_FREQ_ID }) })
+		@UniqueConstraint(columnNames = { CUST_BUSSINESS_APP_ID, CUST_PREP_ID, CUST_COUNT_FREQ_ID }) })
 public class EOCustPreparationCountFreq extends EOCustObject {
 
 	private static final long serialVersionUID = 1L;
@@ -31,9 +31,9 @@ public class EOCustPreparationCountFreq extends EOCustObject {
 	@JoinColumn(name = CUST_COUNT_FREQ_ID)
 	public EOCustCountFreq custCountFreq;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	public EOCustPreparation getCustPreparation() {
 		return custPreparation;
@@ -51,12 +51,12 @@ public class EOCustPreparationCountFreq extends EOCustObject {
 		this.custCountFreq = custCountFreq;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
 	}
-	
+
 }

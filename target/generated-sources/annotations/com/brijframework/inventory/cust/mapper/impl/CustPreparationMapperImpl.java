@@ -2,7 +2,7 @@ package com.brijframework.inventory.cust.mapper.impl;
 
 import com.brijframework.inventory.dto.UICustPreparation;
 import com.brijframework.inventory.dto.UIPrepLocation;
-import com.brijframework.inventory.entities.EOCustInventoryApp;
+import com.brijframework.inventory.entities.EOCustBusinessApp;
 import com.brijframework.inventory.entities.EOCustPreparation;
 import com.brijframework.inventory.entities.EOCustPreparationLocation;
 import com.brijframework.inventory.entities.EOGlobalMediaDetail;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-13T22:22:07+0530",
+    date = "2023-10-29T23:49:28+0530",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.19 (Oracle Corporation)"
 )
 @Component
@@ -58,14 +58,14 @@ public class CustPreparationMapperImpl implements CustPreparationMapper {
 
         EOCustPreparation eOCustPreparation = new EOCustPreparation();
 
-        eOCustPreparation.setCustInventoryApp( uICustPreparationToEOCustInventoryApp( uiCustPreparation ) );
+        eOCustPreparation.setCustBusinessApp( uICustPreparationToEOCustBusinessApp( uiCustPreparation ) );
         eOCustPreparation.setGlbImgDetail( uICustPreparationToEOGlobalMediaDetail( uiCustPreparation ) );
         eOCustPreparation.setId( uiCustPreparation.getId() );
         eOCustPreparation.setLogoUrl( uiCustPreparation.getLogoUrl() );
         eOCustPreparation.setIdenNo( uiCustPreparation.getIdenNo() );
         eOCustPreparation.setName( uiCustPreparation.getName() );
         eOCustPreparation.setQnt( uiCustPreparation.getQnt() );
-        eOCustPreparation.setCustPreparationLocations( uIPrepLocationListToEOCustPreparationLocationSet( uiCustPreparation.getCustPreparationLocations() ) );
+        eOCustPreparation.setCustPreparationLocationList( uIPrepLocationListToEOCustPreparationLocationSet( uiCustPreparation.getCustPreparationLocationList() ) );
 
         return eOCustPreparation;
     }
@@ -78,13 +78,10 @@ public class CustPreparationMapperImpl implements CustPreparationMapper {
 
         UICustPreparation uICustPreparation = new UICustPreparation();
 
-        Long id = eoInvPreparationGlbImgDetailId( eoInvPreparation );
-        if ( id != null ) {
-            uICustPreparation.setGlbImgDetailId( id );
-        }
-        Long id1 = eoInvPreparationCustInventoryAppId( eoInvPreparation );
+        uICustPreparation.setCustBusinessAppId( eoInvPreparationCustBusinessAppId( eoInvPreparation ) );
+        Long id1 = eoInvPreparationGlbImgDetailId( eoInvPreparation );
         if ( id1 != null ) {
-            uICustPreparation.setCustInventoryAppId( id1 );
+            uICustPreparation.setGlbImgDetailId( id1 );
         }
         if ( eoInvPreparation.getId() != null ) {
             uICustPreparation.setId( eoInvPreparation.getId() );
@@ -95,21 +92,21 @@ public class CustPreparationMapperImpl implements CustPreparationMapper {
         if ( eoInvPreparation.getQnt() != null ) {
             uICustPreparation.setQnt( eoInvPreparation.getQnt() );
         }
-        uICustPreparation.setCustPreparationLocations( eOCustPreparationLocationSetToUIPrepLocationList( eoInvPreparation.getCustPreparationLocations() ) );
+        uICustPreparation.setCustPreparationLocationList( eOCustPreparationLocationSetToUIPrepLocationList( eoInvPreparation.getCustPreparationLocationList() ) );
 
         return uICustPreparation;
     }
 
-    protected EOCustInventoryApp uICustPreparationToEOCustInventoryApp(UICustPreparation uICustPreparation) {
+    protected EOCustBusinessApp uICustPreparationToEOCustBusinessApp(UICustPreparation uICustPreparation) {
         if ( uICustPreparation == null ) {
             return null;
         }
 
-        EOCustInventoryApp eOCustInventoryApp = new EOCustInventoryApp();
+        EOCustBusinessApp eOCustBusinessApp = new EOCustBusinessApp();
 
-        eOCustInventoryApp.setId( uICustPreparation.getCustInventoryAppId() );
+        eOCustBusinessApp.setId( uICustPreparation.getCustBusinessAppId() );
 
-        return eOCustInventoryApp;
+        return eOCustBusinessApp;
     }
 
     protected EOGlobalMediaDetail uICustPreparationToEOGlobalMediaDetail(UICustPreparation uICustPreparation) {
@@ -147,6 +144,21 @@ public class CustPreparationMapperImpl implements CustPreparationMapper {
         return set;
     }
 
+    private Long eoInvPreparationCustBusinessAppId(EOCustPreparation eOCustPreparation) {
+        if ( eOCustPreparation == null ) {
+            return null;
+        }
+        EOCustBusinessApp custBusinessApp = eOCustPreparation.getCustBusinessApp();
+        if ( custBusinessApp == null ) {
+            return null;
+        }
+        Long id = custBusinessApp.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
+    }
+
     private Long eoInvPreparationGlbImgDetailId(EOCustPreparation eOCustPreparation) {
         if ( eOCustPreparation == null ) {
             return null;
@@ -156,21 +168,6 @@ public class CustPreparationMapperImpl implements CustPreparationMapper {
             return null;
         }
         Long id = glbImgDetail.getId();
-        if ( id == null ) {
-            return null;
-        }
-        return id;
-    }
-
-    private Long eoInvPreparationCustInventoryAppId(EOCustPreparation eOCustPreparation) {
-        if ( eOCustPreparation == null ) {
-            return null;
-        }
-        EOCustInventoryApp custInventoryApp = eOCustPreparation.getCustInventoryApp();
-        if ( custInventoryApp == null ) {
-            return null;
-        }
-        Long id = custInventoryApp.getId();
         if ( id == null ) {
             return null;
         }

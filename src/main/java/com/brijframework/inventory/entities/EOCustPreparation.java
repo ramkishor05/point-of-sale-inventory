@@ -1,9 +1,8 @@
 package com.brijframework.inventory.entities;
 
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_PREPARATION;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
 import static com.brijframework.inventory.contants.Constants.EOCUST_PREPARATION;
-import static com.brijframework.inventory.contants.Constants.GLB_IMG_ID;
 import static com.brijframework.inventory.contants.Constants.NAME;
 import static com.brijframework.inventory.contants.Constants.QNT;
 
@@ -16,14 +15,13 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = EOCUST_PREPARATION, uniqueConstraints = { @UniqueConstraint(columnNames = { CUST_PROD_APP_ID, NAME }) })
+@Table(name = EOCUST_PREPARATION, uniqueConstraints = { @UniqueConstraint(columnNames = { CUST_BUSSINESS_APP_ID, NAME }) })
 public class EOCustPreparation extends EOCustItem {
 
 
@@ -35,26 +33,18 @@ public class EOCustPreparation extends EOCustItem {
 	@Column(name = QNT)
 	public Double qnt;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
-
-	@OneToOne
-	@JoinColumn(name = GLB_IMG_ID, nullable = true)
-	public EOGlobalMediaDetail glbImgDetail;
+	private EOCustBusinessApp custBusinessApp;
 
 	@OneToMany(mappedBy = CUST_PREPARATION)
-	public Set<EOCustPreparationLocation> custPreparationLocations;
+	public Set<EOCustPreparationLocation> custPreparationLocationList;
 
 	@OneToMany(mappedBy = CUST_PREPARATION)
-	public Set<EOCustPreparationCountFreq> custPreparationCountFreqs;
+	public Set<EOCustPreparationCountFreq> custPreparationCountFreqList;
 
 	@OneToMany(mappedBy = CUST_PREPARATION)
-	public Set<EOCustPreparationRecipe> custPreparationRecipes;
-
-	public String logURL() {
-		return this.glbImgDetail != null ? this.glbImgDetail.url : "";
-	}
+	public Set<EOCustPreparationRecipe> custPreparationRecipeList;
 
 	public Double getQnt() {
 		return qnt;
@@ -64,46 +54,36 @@ public class EOCustPreparation extends EOCustItem {
 		this.qnt = qnt;
 	}
 
-	public EOGlobalMediaDetail getGlbImgDetail() {
-		return glbImgDetail;
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
 	}
 
-	public void setGlbImgDetail(EOGlobalMediaDetail glbImgDetail) {
-		this.glbImgDetail = glbImgDetail;
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
 	}
 
-	public Set<EOCustPreparationLocation> getCustPreparationLocations() {
-		return custPreparationLocations;
+	public Set<EOCustPreparationLocation> getCustPreparationLocationList() {
+		return custPreparationLocationList;
 	}
 
-	public void setCustPreparationLocations(Set<EOCustPreparationLocation> custPreparationLocations) {
-		this.custPreparationLocations = custPreparationLocations;
+	public void setCustPreparationLocationList(Set<EOCustPreparationLocation> custPreparationLocationList) {
+		this.custPreparationLocationList = custPreparationLocationList;
 	}
 
-	public Set<EOCustPreparationCountFreq> getCustPreparationCountFreqs() {
-		return custPreparationCountFreqs;
+	public Set<EOCustPreparationCountFreq> getCustPreparationCountFreqList() {
+		return custPreparationCountFreqList;
 	}
 
-	public void setCustPreparationCountFreqs(Set<EOCustPreparationCountFreq> custPreparationCountFreqs) {
-		this.custPreparationCountFreqs = custPreparationCountFreqs;
+	public void setCustPreparationCountFreqList(Set<EOCustPreparationCountFreq> custPreparationCountFreqList) {
+		this.custPreparationCountFreqList = custPreparationCountFreqList;
 	}
 
-	public Set<EOCustPreparationRecipe> getCustPreparationRecipes() {
-		return custPreparationRecipes;
+	public Set<EOCustPreparationRecipe> getCustPreparationRecipeList() {
+		return custPreparationRecipeList;
 	}
 
-	public void setCustPreparationRecipes(Set<EOCustPreparationRecipe> custPreparationRecipes) {
-		this.custPreparationRecipes = custPreparationRecipes;
+	public void setCustPreparationRecipeList(Set<EOCustPreparationRecipe> custPreparationRecipeList) {
+		this.custPreparationRecipeList = custPreparationRecipeList;
 	}
-
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
-	}
-
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
-	}
-
-	
 	
 }

@@ -15,13 +15,13 @@ public class UICustPreparation implements Serializable {
 	private double qnt;
 	private long glbImgDetailId;
 
-	private Long custInventoryAppId;
+	private Long custBusinessAppId;
 
-	public List<UIPrepLocation> custPreparationLocations;
+	public List<UIPrepLocation> custPreparationLocationList;
 
-	public List<UIPrepCountFreq> custPreparationLCountFreqs;
+	public List<UIPrepCountFreq> custPreparationLCountFreqList;
 
-	public Set<UIPrepRecipe> custPreparationLRecipes;
+	public Set<UIPrepRecipe> custPreparationLRecipeList;
 
 	public long getId() {
 		return id;
@@ -79,36 +79,36 @@ public class UICustPreparation implements Serializable {
 		this.glbImgDetailId = glbImgDetailId;
 	}
 
-	public long getCustInventoryAppId() {
-		return custInventoryAppId;
+	public Long getCustBusinessAppId() {
+		return custBusinessAppId;
 	}
 
-	public void setCustInventoryAppId(long custInventoryAppId) {
-		this.custInventoryAppId = custInventoryAppId;
+	public void setCustBusinessAppId(Long custBusinessAppId) {
+		this.custBusinessAppId = custBusinessAppId;
 	}
 
-	public List<UIPrepLocation> getCustPreparationLocations() {
-		return custPreparationLocations;
+	public List<UIPrepLocation> getCustPreparationLocationList() {
+		return custPreparationLocationList;
 	}
 
-	public void setCustPreparationLocations(List<UIPrepLocation> custPreparationLocations) {
-		this.custPreparationLocations = custPreparationLocations;
+	public void setCustPreparationLocationList(List<UIPrepLocation> custPreparationLocationList) {
+		this.custPreparationLocationList = custPreparationLocationList;
 	}
 
-	public List<UIPrepCountFreq> getCustPreparationLCountFreqs() {
-		return custPreparationLCountFreqs;
+	public List<UIPrepCountFreq> getCustPreparationLCountFreqList() {
+		return custPreparationLCountFreqList;
 	}
 
-	public void setCustPreparationLCountFreqs(List<UIPrepCountFreq> custPreparationLCountFreqs) {
-		this.custPreparationLCountFreqs = custPreparationLCountFreqs;
+	public void setCustPreparationLCountFreqList(List<UIPrepCountFreq> custPreparationLCountFreqList) {
+		this.custPreparationLCountFreqList = custPreparationLCountFreqList;
 	}
 
-	public Set<UIPrepRecipe> getCustPreparationLRecipes() {
-		return custPreparationLRecipes;
+	public Set<UIPrepRecipe> getCustPreparationLRecipeList() {
+		return custPreparationLRecipeList;
 	}
 
-	public void setCustPreparationLRecipes(Set<UIPrepRecipe> custPreparationLRecipes) {
-		this.custPreparationLRecipes = custPreparationLRecipes;
+	public void setCustPreparationLRecipeList(Set<UIPrepRecipe> custPreparationLRecipeList) {
+		this.custPreparationLRecipeList = custPreparationLRecipeList;
 	}
 
 }

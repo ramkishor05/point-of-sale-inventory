@@ -1,11 +1,9 @@
 package com.brijframework.inventory.entities;
 
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_CATEGORY_ID;
-import static com.brijframework.inventory.contants.Constants.CUST_PRODUCT;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
 import static com.brijframework.inventory.contants.Constants.EOCUST_PRODUCT;
 import static com.brijframework.inventory.contants.Constants.EXPIRY_DATE;
-import static com.brijframework.inventory.contants.Constants.GLB_IMG_ID;
 import static com.brijframework.inventory.contants.Constants.GLB_MRF_ID;
 import static com.brijframework.inventory.contants.Constants.IDEN_NO;
 import static com.brijframework.inventory.contants.Constants.MRFTR_DATE;
@@ -17,7 +15,6 @@ import static com.brijframework.inventory.contants.Constants.TITLE;
 import static com.brijframework.inventory.contants.Constants.WHOLE_PRICE;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +22,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -33,7 +29,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = EOCUST_PRODUCT, uniqueConstraints = { @UniqueConstraint(columnNames = { CUST_PROD_APP_ID, IDEN_NO }) })
+@Table(name = EOCUST_PRODUCT, uniqueConstraints = { @UniqueConstraint(columnNames = { CUST_BUSSINESS_APP_ID, IDEN_NO }) })
 public class EOCustProduct extends EOCustItem {
 
 	/**
@@ -80,16 +76,12 @@ public class EOCustProduct extends EOCustItem {
 	private Date mfrDate;
 
 	@OneToOne
-	@JoinColumn(name = GLB_IMG_ID)
-	public EOGlobalMediaDetail glbImageDetail;
-
-	@OneToOne
 	@JoinColumn(name = GLB_MRF_ID)
 	public EOGlobalManufacturer globalManufacturer;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	@Column(name = CUST_CATEGORY_ID)
 	public Long custCategoryId;
@@ -110,6 +102,14 @@ public class EOCustProduct extends EOCustItem {
 		this.purchasePrice = purchasePrice;
 	}
 
+	public EOCustUnit getPurchaseUnit() {
+		return purchaseUnit;
+	}
+
+	public void setPurchaseUnit(EOCustUnit purchaseUnit) {
+		this.purchaseUnit = purchaseUnit;
+	}
+
 	public Double getRetailPrice() {
 		return retailPrice;
 	}
@@ -118,12 +118,28 @@ public class EOCustProduct extends EOCustItem {
 		this.retailPrice = retailPrice;
 	}
 
+	public EOCustUnit getRetailUnit() {
+		return retailUnit;
+	}
+
+	public void setRetailUnit(EOCustUnit retailUnit) {
+		this.retailUnit = retailUnit;
+	}
+
 	public Double getWholePrice() {
 		return wholePrice;
 	}
 
 	public void setWholePrice(Double wholePrice) {
 		this.wholePrice = wholePrice;
+	}
+
+	public EOCustUnit getWholeUnit() {
+		return wholeUnit;
+	}
+
+	public void setWholeUnit(EOCustUnit wholeUnit) {
+		this.wholeUnit = wholeUnit;
 	}
 
 	public Long getStockQnt() {
@@ -157,38 +173,6 @@ public class EOCustProduct extends EOCustItem {
 	public void setMfrDate(Date mfrDate) {
 		this.mfrDate = mfrDate;
 	}
-	
-	public EOCustUnit getPurchaseUnit() {
-		return purchaseUnit;
-	}
-
-	public void setPurchaseUnit(EOCustUnit purchaseUnit) {
-		this.purchaseUnit = purchaseUnit;
-	}
-
-	public EOCustUnit getRetailUnit() {
-		return retailUnit;
-	}
-
-	public void setRetailUnit(EOCustUnit retailUnit) {
-		this.retailUnit = retailUnit;
-	}
-
-	public EOCustUnit getWholeUnit() {
-		return wholeUnit;
-	}
-
-	public void setWholeUnit(EOCustUnit wholeUnit) {
-		this.wholeUnit = wholeUnit;
-	}
-
-	public EOGlobalMediaDetail getGlbImageDetail() {
-		return glbImageDetail;
-	}
-
-	public void setGlbImageDetail(EOGlobalMediaDetail glbImageDetail) {
-		this.glbImageDetail = glbImageDetail;
-	}
 
 	public EOGlobalManufacturer getGlobalManufacturer() {
 		return globalManufacturer;
@@ -198,12 +182,12 @@ public class EOCustProduct extends EOCustItem {
 		this.globalManufacturer = globalManufacturer;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
 	}
 
 	public Long getCustCategoryId() {
@@ -214,5 +198,4 @@ public class EOCustProduct extends EOCustItem {
 		this.custCategoryId = custCategoryId;
 	}
 
-	
 }

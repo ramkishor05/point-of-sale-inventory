@@ -2,7 +2,7 @@ package com.brijframework.inventory.entities;
 
 import static com.brijframework.inventory.contants.Constants.CUST_INGR_ID;
 import static com.brijframework.inventory.contants.Constants.CUST_PREP_ID;
-import static com.brijframework.inventory.contants.Constants.CUST_PROD_APP_ID;
+import static com.brijframework.inventory.contants.Constants.CUST_BUSSINESS_APP_ID;
 import static com.brijframework.inventory.contants.Constants.EOCUST_PREPARATION_RECIPE;
 import static com.brijframework.inventory.contants.Constants.QNT;
 
@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = EOCUST_PREPARATION_RECIPE, uniqueConstraints = { @UniqueConstraint(columnNames = { 
-		CUST_PROD_APP_ID, CUST_INGR_ID, CUST_PREP_ID  }) })
+		CUST_BUSSINESS_APP_ID, CUST_INGR_ID, CUST_PREP_ID  }) })
 public  class EOCustPreparationRecipe extends EOCustObject{
 	
 	/**
@@ -39,9 +39,9 @@ public  class EOCustPreparationRecipe extends EOCustObject{
 	@JoinColumn(name=CUST_PREP_ID, nullable=false)
 	private EOCustPreparation custPreparation;
 
-	@JoinColumn(name = CUST_PROD_APP_ID, nullable = false)
+	@JoinColumn(name = CUST_BUSSINESS_APP_ID, nullable = false)
 	@ManyToOne
-	private EOCustInventoryApp custInventoryApp;
+	private EOCustBusinessApp custBusinessApp;
 
 	public float getQnt() {
 		return qnt;
@@ -67,12 +67,11 @@ public  class EOCustPreparationRecipe extends EOCustObject{
 		this.custPreparation = custPreparation;
 	}
 
-	public EOCustInventoryApp getCustInventoryApp() {
-		return custInventoryApp;
+	public EOCustBusinessApp getCustBusinessApp() {
+		return custBusinessApp;
 	}
 
-	public void setCustInventoryApp(EOCustInventoryApp custInventoryApp) {
-		this.custInventoryApp = custInventoryApp;
+	public void setCustBusinessApp(EOCustBusinessApp custBusinessApp) {
+		this.custBusinessApp = custBusinessApp;
 	}
-	
 }
