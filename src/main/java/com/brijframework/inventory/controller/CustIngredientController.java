@@ -21,7 +21,7 @@ import com.brijframework.inventory.service.impl.CustIngredientService;
 public class CustIngredientController {
 
 	@Autowired
-	CustIngredientService custIngredientService;
+	private CustIngredientService custIngredientService;
 	
 	@PostMapping
 	public UICustIngredient addIngredient(@RequestHeader(CUST_APP_ID) long custAppId,@RequestBody UICustIngredient uiCustIngredient) {
