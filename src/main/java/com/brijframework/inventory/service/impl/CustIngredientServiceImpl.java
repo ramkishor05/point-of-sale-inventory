@@ -57,13 +57,11 @@ public class CustIngredientServiceImpl implements CustIngredientService {
 
 	@Override
 	public List<UICustIngredient> getIngredientList(long custBusinessAppId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public UICustIngredient getIngredient(long custBusinessAppId, String typeId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

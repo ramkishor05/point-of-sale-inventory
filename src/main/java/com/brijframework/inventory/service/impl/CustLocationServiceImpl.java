@@ -58,13 +58,11 @@ public class CustLocationServiceImpl implements CustLocationService {
 
 	@Override
 	public List<UICustLocation> getLocationList(long custBusinessAppId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public UICustLocation getLocation(long custBusinessAppId, String typeId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
