@@ -52,7 +52,7 @@ public class CustIngredientServiceImpl implements CustIngredientService {
 
 	@Override
 	public UICustIngredient getIngredient(long id) {
-		return custIngredientMapper.mapToDTO(custIngredientRepository.getOne(id));
+		return custIngredientMapper.mapToDTO(custIngredientRepository.getReferenceById(id));
 	}
 
 	@Override

@@ -52,7 +52,7 @@ public class CustStorageServiceImpl implements CustStorageService {
 
 	@Override
 	public UICustStorage getStorage(long id) {
-		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.getOne(id));
+		return inventoryStorageMapper.mapToDTO(inventoryStorageRepository.getReferenceById(id));
 	}
 
 	@Override

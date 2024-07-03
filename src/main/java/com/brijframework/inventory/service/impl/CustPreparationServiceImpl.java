@@ -52,7 +52,7 @@ public class CustPreparationServiceImpl implements CustPreparationService {
 
 	@Override
 	public UICustPreparation getPreparation(long id) {
-		return custPreparationMapper.mapToDTO(custPreparationRepository.getOne(id));
+		return custPreparationMapper.mapToDTO(custPreparationRepository.getReferenceById(id));
 	}
 
 	@Override

@@ -7,11 +7,11 @@ import static com.brijframework.inventory.contants.Constants.LOGO_URL;
 import static com.brijframework.inventory.contants.Constants.NAME;
 import static com.brijframework.inventory.contants.Constants.TYPE_ID;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToOne;
 
 @MappedSuperclass
 public abstract class EOCustItem extends EOCustObject{

@@ -6,12 +6,12 @@ import static com.brijframework.inventory.contants.Constants.EOCUST_COUNT_FREQ;
 import static com.brijframework.inventory.contants.Constants.NAME;
 import static com.brijframework.inventory.contants.Constants.TYPE_ID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = EOCUST_COUNT_FREQ, uniqueConstraints = {@UniqueConstraint (columnNames = {CUST_BUSSINESS_APP_ID, NAME})})

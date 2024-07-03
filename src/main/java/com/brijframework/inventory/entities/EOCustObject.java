@@ -2,8 +2,8 @@ package com.brijframework.inventory.entities;
 
 import static com.brijframework.inventory.contants.Constants.ACTIVE;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class EOCustObject extends EOEntityObject {

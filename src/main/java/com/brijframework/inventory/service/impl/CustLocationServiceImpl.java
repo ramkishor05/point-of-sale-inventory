@@ -53,7 +53,7 @@ public class CustLocationServiceImpl implements CustLocationService {
 
 	@Override
 	public UICustLocation getLocation(long id) {
-		return custLocationMapper.mapToDTO(custLocationRepository.getOne(id));
+		return custLocationMapper.mapToDTO(custLocationRepository.getReferenceById(id));
 	}
 
 	@Override
